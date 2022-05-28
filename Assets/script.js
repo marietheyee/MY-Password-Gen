@@ -1,67 +1,18 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+document.querySelector("generate").addEventListener("click", writePassword)
 
-var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
-var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numericalChar = "123456789";
-var specialChar = "!#$%&'()*+=";
+var lowercaseChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "W", "x", "y", "z"];
+var uppercaseChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numericChar = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+var specialChar = ["!", "$", "-", "*", "+", "=", "@", "_",];
+
+var confirmLength = "";
+var confirmLowercaseChar;
+var confirmUppercaseChar;
+var confirmNumericChar;
+var confirmSpecialChar;
 
 function generatePassword() {
-
-  var password = "";
-  var passwordChar = "";
-
-  var passwordLengthUser = prompt("Choose how many characters you want in your password. Password must be between 8-128 characters.");
-  passwordLengthUser = parseInt(passwordLengthUser);
-
-  if (passwordLengthUser < 8) {
-    alert("Password must have more than 7 characters.");
-    return "";
-  }
-
-  if (passwordLengthUser > 128) {
-    alert("Password can't have more than 128 characters.");
-    return ""
-
-  }
-
-  var lowercaseChoice = confirm("Do you want to include lowercase characters?");
-
-  if (lowercaseChoice) {
-    passwordChar += lowercaseChar;
-
-  }
-
-  var uppercaseChoice = confirm("Do you want to include uppercase characters?");
-
-  if (uppercaseChoice) {
-    passwordChar += uppercaseChar;
-  }
-
-  var numericalCharChoice = confirm("You should add a few numbers.");
-
-  if (numericalCharChoice) {
-    passwordChar += numericalChar;
-  }
-
-  var specialcharChoice = confirm("Do you want to add special characters?");
-
-  if (specialcharChoice) {
-    passwordChar += specialChar;
-  }
-
-  for (var i = 0; i < passwordLengthUser; i++) {
-    password = passwordChar[Math.floor(Math.random() * passwordChar.length)]
-  }
-
-
-// Write password to the #password input
-
-function writePassword() {
-  var password = generatePassword();
-  var TextArea = document.getElementById("password");
-  TextArea.value = password;
-
-  }
+  var confirmLength = (prompt("How many characters do you want your password to have?"))
 }
-generateBtn.addEventListener("click", generatePassword);
+
