@@ -1,90 +1,58 @@
-// Assignment Code
-//create an array
-var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
-var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCaseChar = "abcdefghijklmnopqrstuvwxyz";
+var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numericChar = "1234567890";
-var specialChar = "!@#$%^&*(()_+=.,";
+var specialChar = "!@#$%^&*()_+?><-";
 
-//Create final empty array
-var characterCombo = [];
-
-var confirmLength = "";
-var confirmLowercaseChar;
-var confirmUppercaseChar;
-var confirmNumericChar;
-var confirmSpecialChar;
-
-var passwordLength;
-//get input from user for length of password//
 function generatePassword() {
-   passwordLength = window.prompt("Your password can have a length of at least 8 characters and no more than 128 characters.");
-if (passwordLength => 8 && passwordLength <= 128) {
-    window.confirm ("Your password is" + passwordLength + "characters");
-} else {
-    window.alert("Please enter character value.");
+  var passwordCharSet = "";
 
-    confirmLowercaseChar = window.prompt("Do you want to include lowercase characters?");
-if (confirmLowercaseChar === lowercaseChar ) {
-  window.confirm("You have added" + confirmLowercaseChar + "characters");
-} else {
-    window.alert("Please enter lowercase characters.");
+var length = prompt("Enter a number from 8 to 128 for password length");
+
+var lowerCase= confirm("Would you like to use lowercase letters?")
+if (lowerCase) {
+  passwordCharSet += lowerCaseChar;
+};
+console.log(passwordCharSet)
+var upperCase = confirm("Would you like to use uppercase letters?");
+if (upperCase) {
+  passwordCharSet += upperCaseChar;
+};
+console.log(passwordCharSet)
+var numerical = confirm("Would you like to use numbers?");
+if (numerical) {
+  passwordCharSet += numericChar
+};
+
+var special = confirm("Would you like to use special characters?")
+if (special) {
+  passwordCharSet += specialChar
+};
+
+var password = "";
+for (let i = 0; i <length; i++) {
+  password += passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)]
+}
+return password;
+
 }
 
-    confirmUppercaseChar = window.prompt("Do you want to include uppercase characters?");
-if (confirmUppercaseChar || uppercaseChar) {
-  window.confirm ("Your password has" + confirmUppercaseChar + "characters.");
-} else {
-    window.alert("Please enter uppercase characters.");
-}   
-
-    confirmNumericChar = window.prompt("Do you want to include numbers?");
-if (confirmNumericChar === numericChar) {
-  window.confirm("Your password has" + confirmNumbericChar + "numbers.");
-} else {
-  window.alert("Please enter numbers.");
-  }
-
-    confirmSpecialChar = window.prompt("Do you want to add special characters?");
-if (confirmSpecialChar || lowercaseChar || uppercaseChar || numericChar) {
-  window.confirm("Your password has" + confirmSpecialChar + "special characters.");
-} else {
-  window.alert("Please enter special characters.");
-}
-
-for (let i=0; i<length; i++) {
-  password += characters.lowercaseChar(
-    Math.floor(Math.random() * characters.length)
-  );
-
-  //Do I do this separately for all categories?
-  return password;
-}
-
-}}
+//do i add a loop?
 
 
-//ask user if they want lowercase letter
-//ask user if they want uppercase letter
-//ask user if they want numbers
-//ask user if they want special characters
 
-
-//for loop goes down - create random selection variable
-
-
+// Write password to the #password input
 function writePassword() {
+  console.log("hello")
   var password = generatePassword();
-  var TextArea = document.getElementById("password");
-  TextArea.value = password;
+  var passwordText = document.querySelector("#password");
 
-  }
-function passwordCombo(){
-  characterCdombo = [];
+  passwordText.value = password;
 
 }
 
 
+var generateBtn = document.querySelector("#generate");
 
 
-generateBtn.addEventListener("click", generatePassword);
-document.querySelector("#generate").addEventListener("click", writePassword)
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
