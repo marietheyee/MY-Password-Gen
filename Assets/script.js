@@ -55,6 +55,8 @@ for (let i=0; i<length; i++) {
   password += characters.lowercaseChar(
     Math.floor(Math.random() * characters.length)
   );
+
+  //Do I do this separately for all categories?
   return password;
 }
 
