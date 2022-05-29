@@ -33,26 +33,15 @@ for (let i = 0; i <length; i++) {
   password += passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)]
 }
 return password;
-
 }
 
-//do i add a loop?
-
-
-
-// Write password to the #password input
 function writePassword() {
   console.log("hello")
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
-
 var generateBtn = document.querySelector("#generate");
-
-
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
