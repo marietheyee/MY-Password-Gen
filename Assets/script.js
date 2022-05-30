@@ -8,7 +8,7 @@ function generatePassword() {
 
 var length = prompt("Enter a number from 8 to 128 for password length");
 
-var lowerCase= confirm("Would you like to use lowercase letters?")
+var lowerCase= confirm("Would you like to use lowercase letters?");
 if (lowerCase) {
   passwordCharSet += lowerCaseChar;
 };
@@ -23,7 +23,7 @@ if (numerical) {
   passwordCharSet += numericChar
 };
 
-var special = confirm("Would you like to use special characters?")
+var special = confirm("Would you like to use special characters?");
 if (special) {
   passwordCharSet += specialChar
 };
